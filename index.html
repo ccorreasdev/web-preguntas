@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+    <script defer type="importmap">
+        {
+            "imports": {
+                "three": "../assets/js/build/three.module.js",
+                "three/addons/": "../assets/js/jsm/"
+            }
+        }
+    </script>
+    <script defer type="module"  src="./assets/js/script.js"></script>
+    <title>Document</title>
+</head>
+<body class="layout">
+    <main class="main__layout">
+        <section class="question__layout">
+
+            <div class="question__stats">
+                <div id="question-counter" class="question__counter">1</div>
+                <div id="question-counter-correct" class="question__counter--correct">Correctas: 0</div>
+                <div id="question-counter-error" class="question__counter--error">Errores: 0</div>
+            </div>
+
+            <div id="question" class="question__text">¿?</div>
+
+            <div class="question__answers">
+                <div id="a1" class="answer1 answer">A.</div>
+                <div id="a2" class="answer2 answer">B.</div>
+                <div id="a3" class="answer3 answer">C.</div>
+                <div id="a4" class="answer4 answer">D.</div>
+            </div>
+
+
+        </section>
+   
+    </main>
+    <section id="canvas" class="canvas"></section>
+</body>
+</html>

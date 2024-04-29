@@ -322,7 +322,12 @@ const a4 = document.querySelector("#a4");
 const canvas = document.querySelector("#canvas");
 let camera, scene, renderer, controls;
 let model1, model2, model3;
+var synth = window.speechSynthesis;
 
+const speechText = (text)=>{
+    let utterance = new SpeechSynthesisUtterance(text);
+    synth.speak(utterance);
+};
 
 function desordenarRespuestas(respuestas) {
     const respuestasDesordenadas = respuestas.slice();
@@ -477,6 +482,8 @@ const showQuestion = () => {
     a2.style.pointerEvents = "all";
     a3.style.pointerEvents = "all";
     a4.style.pointerEvents = "all";
+
+  speechText(selectedQuestion["pregunta"]);
 };
 
 const checkCorrectAnswer = (answer) => {
@@ -496,6 +503,9 @@ const checkCorrectAnswer = (answer) => {
                 correctCounter++;
             }
         });
+
+
+        speechText("Correcto");
 
     } else {
         errorCounter++;
@@ -527,7 +537,7 @@ const checkCorrectAnswer = (answer) => {
             }
         });
 
-
+        speechText("Incorrecto");
     }
 
     setTimeout(() => {

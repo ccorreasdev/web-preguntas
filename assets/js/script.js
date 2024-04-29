@@ -4,301 +4,167 @@ import { GLTFLoader } from "./jsm/loaders/GLTFLoader.js"
 
 const preguntas = [
 
-    {
-        "pregunta": "¿Quién pintó la Mona Lisa?",
-        "respuestas": ["Leonardo da Vinci", "Pablo Picasso", "Vincent van Gogh", "Claude Monet"],
-        "respuesta_correcta": "Leonardo da Vinci"
-    },
-    {
-        "pregunta": "¿Cuál es el metal más caro del mundo?",
-        "respuestas": ["Oro", "Platino", "Rodio", "Iridio"],
-        "respuesta_correcta": "Rodio"
-    },
-    {
-        "pregunta": "¿En qué país se encuentra la Gran Muralla China?",
-        "respuestas": ["China", "India", "Rusia", "Japón"],
-        "respuesta_correcta": "China"
-    },
-    {
-        "pregunta": "¿Quién fue el primer ser humano en viajar al espacio?",
-        "respuestas": ["Yuri Gagarin", "Neil Armstrong", "Buzz Aldrin", "Alan Shepard"],
-        "respuesta_correcta": "Yuri Gagarin"
-    },
-    {
-        "pregunta": "¿Cuál es el país más grande del mundo?",
-        "respuestas": ["Rusia", "Canadá", "Estados Unidos", "China"],
-        "respuesta_correcta": "Rusia"
-    },
-    {
-        "pregunta": "¿Quién escribió 'Hamlet'?",
-        "respuestas": ["William Shakespeare", "Fiodor Dostoievski", "Charles Dickens", "Jane Austen"],
-        "respuesta_correcta": "William Shakespeare"
-    },
-    {
-        "pregunta": "¿Cuál es la capital de Australia?",
-        "respuestas": ["Canberra", "Sídney", "Melbourne", "Brisbane"],
-        "respuesta_correcta": "Canberra"
-    },
-    {
-        "pregunta": "¿Qué famoso científico formuló la teoría de la relatividad?",
-        "respuestas": ["Albert Einstein", "Isaac Newton", "Stephen Hawking", "Galileo Galilei"],
-        "respuesta_correcta": "Albert Einstein"
-    },
-    {
-        "pregunta": "¿Cuál es el océano más grande del mundo?",
-        "respuestas": ["Océano Pacífico", "Océano Atlántico", "Océano Índico", "Océano Antártico"],
-        "respuesta_correcta": "Océano Pacífico"
-    },
-    {
-        "pregunta": "¿Quién fue el primer presidente de los Estados Unidos?",
-        "respuestas": ["George Washington", "Thomas Jefferson", "Abraham Lincoln", "John Adams"],
-        "respuesta_correcta": "George Washington"
-    },
-    {
-        "pregunta": "¿Cuál es el monte más alto del mundo?",
-        "respuestas": ["Monte Everest", "Monte Kilimanjaro", "Monte Aconcagua", "Monte McKinley (Denali)"],
-        "respuesta_correcta": "Monte Everest"
-    },
-    {
-        "pregunta": "¿En qué año cayó el Muro de Berlín?",
-        "respuestas": ["1989", "1991", "1990", "1987"],
-        "respuesta_correcta": "1989"
-    },
-    {
-        "pregunta": "¿Cuál es el país con más islas en el mundo?",
-        "respuestas": ["Suecia", "Filipinas", "Indonesia", "Japón"],
-        "respuesta_correcta": "Suecia"
-    },
-    {
-        "pregunta": "¿Quién fue el primer hombre en pisar la Luna?",
-        "respuestas": ["Neil Armstrong", "Buzz Aldrin", "Yuri Gagarin", "Alan Shepard"],
-        "respuesta_correcta": "Neil Armstrong"
-    },
-    {
-        "pregunta": "¿Cuál es el animal más grande del mundo?",
-        "respuestas": ["Ballena azul", "Elefante africano", "Jirafa", "Oso polar"],
-        "respuesta_correcta": "Ballena azul"
-    },
-    {
-        "pregunta": "¿Cuál es el país más poblado del mundo?",
-        "respuestas": ["China", "India", "Estados Unidos", "Rusia"],
-        "respuesta_correcta": "China"
-    },
-    {
-        "pregunta": "¿Quién fue el primer presidente de la República de México?",
-        "respuestas": ["Guadalupe Victoria", "Benito Juárez", "Miguel Hidalgo", "Emiliano Zapata"],
-        "respuesta_correcta": "Guadalupe Victoria"
-    },
-    {
-        "pregunta": "¿En qué año se firmó la Declaración de Independencia de los Estados Unidos?",
-        "respuestas": ["1776", "1789", "1804", "1812"],
-        "respuesta_correcta": "1776"
-    },
-    {
-        "pregunta": "¿Cuál es la capital de Canadá?",
-        "respuestas": ["Ottawa", "Toronto", "Vancouver", "Montreal"],
-        "respuesta_correcta": "Ottawa"
-    },
-    {
-        "pregunta": "¿Qué elemento químico tiene el símbolo H?",
-        "respuestas": ["Hidrógeno", "Helio", "Hierro", "Hidróxido"],
-        "respuesta_correcta": "Hidrógeno"
-    },
-    {
-        "pregunta": "¿Cuál es el país más pequeño del mundo?",
-        "respuestas": ["Ciudad del Vaticano", "Mónaco", "Nauru", "Tuvalu"],
-        "respuesta_correcta": "Ciudad del Vaticano"
-    },
-    {
-        "pregunta": "¿Quién fue el primer emperador romano?",
-        "respuestas": ["Augusto", "Julio César", "Nerón", "Trajano"],
-        "respuesta_correcta": "Augusto"
-    },
-    {
-        "pregunta": "¿Cuál es el metal más abundante en la corteza terrestre?",
-        "respuestas": ["Aluminio", "Hierro", "Cobre", "Plata"],
-        "respuesta_correcta": "Aluminio"
-    },
-    {
-        "pregunta": "¿Quién escribió 'Orgullo y prejuicio'?",
-        "respuestas": ["Jane Austen", "Emily Brontë", "Charlotte Brontë", "Louisa May Alcott"],
-        "respuesta_correcta": "Jane Austen"
-    },
-    {
-        "pregunta": "¿En qué año se fundó la ciudad de Roma?",
-        "respuestas": ["753 a.C.", "500 a.C.", "100 a.C.", "500 d.C."],
-        "respuesta_correcta": "753 a.C."
-    },
-    {
-        "pregunta": "¿Cuál es la montaña más alta de América?",
-        "respuestas": ["Monte McKinley (Denali)", "Monte Aconcagua", "Monte Vinson", "Monte Everest"],
-        "respuesta_correcta": "Monte McKinley (Denali)"
-    },
-    {
-        "pregunta": "¿Quién escribió 'El principito'?",
-        "respuestas": ["Antoine de Saint-Exupéry", "Victor Hugo", "Jules Verne", "Gustave Flaubert"],
-        "respuesta_correcta": "Antoine de Saint-Exupéry"
-    },
-    {
-        "pregunta": "¿Cuál es la capital de España?",
-        "respuestas": ["Madrid", "Barcelona", "Valencia", "Sevilla"],
-        "respuesta_correcta": "Madrid"
-    },
-    {
-        "pregunta": "¿En qué año se descubrió América?",
-        "respuestas": ["1492", "1500", "1521", "1453"],
-        "respuesta_correcta": "1492"
-    },
-    {
-        "pregunta": "¿Cuál es la moneda oficial de Japón?",
-        "respuestas": ["Yen", "Dólar", "Euro", "Libra esterlina"],
-        "respuesta_correcta": "Yen"
-    },
-    {
-        "pregunta": "¿Quién fue el primer presidente de Sudáfrica elegido democráticamente?",
-        "respuestas": ["Nelson Mandela", "F.W. de Klerk", "Thabo Mbeki", "Jacob Zuma"],
-        "respuesta_correcta": "Nelson Mandela"
-    },
-    {
-        "pregunta": "¿En qué país se encuentra la Torre Eiffel?",
-        "respuestas": ["Francia", "Italia", "España", "Alemania"],
-        "respuesta_correcta": "Francia"
-    },
-    {
-        "pregunta": "¿Quién fue el primer emperador de China?",
-        "respuestas": ["Qin Shi Huang", "Sun Yat-sen", "Mao Zedong", "Emperador Ming"],
-        "respuesta_correcta": "Qin Shi Huang"
-    },
-    {
-        "pregunta": "¿Cuál es el lago más grande de África?",
-        "respuestas": ["Lago Victoria", "Lago Tanganica", "Lago Malawi", "Lago Nasser"],
-        "respuesta_correcta": "Lago Victoria"
-    },
-    {
-        "pregunta": "¿Cuál es la especie animal más rápida del mundo?",
-        "respuestas": ["Peregrino", "Guepardo", "León", "Águila calva"],
-        "respuesta_correcta": "Peregrino"
-    },
-    {
-        "pregunta": "¿Quién fue el primer presidente de la República Argentina?",
-        "respuestas": ["Bernardino Rivadavia", "Juan Manuel de Rosas", "José de San Martín", "Domingo Faustino Sarmiento"],
-        "respuesta_correcta": "Bernardino Rivadavia"
-    },
-    {
-        "pregunta": "¿En qué año se firmó la Declaración Universal de los Derechos Humanos?",
-        "respuestas": ["1948", "1950", "1955", "1960"],
-        "respuesta_correcta": "1948"
-    },
-    {
-        "pregunta": "¿Cuál es el animal más grande del mundo?",
-        "respuestas": ["Ballena azul", "Elefante africano", "Jirafa", "Oso polar"],
-        "respuesta_correcta": "Ballena azul"
-    },
-    {
-        "pregunta": "¿Cuál es el país más poblado de Europa?",
-        "respuestas": ["Rusia", "Alemania", "Francia", "Reino Unido"],
-        "respuesta_correcta": "Rusia"
-    },
-    {
-        "pregunta": "¿Cuál es el instrumento musical más antiguo del mundo?",
-        "respuestas": ["Flauta", "Lira", "Arpa", "Tambor"],
-        "respuesta_correcta": "Flauta"
-    },
-    {
-        "pregunta": "¿Quién escribió 'Cien años de soledad'?",
-        "respuestas": ["Gabriel García Márquez", "Mario Vargas Llosa", "Jorge Luis Borges", "Isabel Allende"],
-        "respuesta_correcta": "Gabriel García Márquez"
-    },
-    {
-        "pregunta": "¿Cuál es el río más largo de Europa?",
-        "respuestas": ["Volga", "Danubio", "Ródano", "Támesis"],
-        "respuesta_correcta": "Volga"
-    },
-    {
-        "pregunta": "¿Cuál es la capital de Chile?",
-        "respuestas": ["Santiago", "Buenos Aires", "Lima", "Bogotá"],
-        "respuesta_correcta": "Santiago"
-    },
-    {
-        "pregunta": "¿Quién pintó 'La noche estrellada'?",
-        "respuestas": ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"],
-        "respuesta_correcta": "Vincent van Gogh"
-    },
-    {
-        "pregunta": "¿Cuál es el símbolo químico del hierro?",
-        "respuestas": ["Fe", "H", "Ir", "He"],
-        "respuesta_correcta": "Fe"
-    },
-    {
-        "pregunta": "¿Quién fue el primer astronauta en dar una vuelta completa a la Tierra?",
-        "respuestas": ["Yuri Gagarin", "Neil Armstrong", "Buzz Aldrin", "John Glenn"],
-        "respuesta_correcta": "Yuri Gagarin"
-    },
-    {
-        "pregunta": "¿Cuál es el continente más pequeño del mundo?",
-        "respuestas": ["Oceanía", "Europa", "Antártida", "Asia"],
-        "respuesta_correcta": "Antártida"
-    },
-    {
-        "pregunta": "¿Quién fue el primer emperador del Imperio Romano?",
-        "respuestas": ["Augusto", "Julio César", "Nerón", "Marco Antonio"],
-        "respuesta_correcta": "Augusto"
-    },
-    {
-        "pregunta": "¿Cuál es el país más grande de África?",
-        "respuestas": ["Argelia", "República Democrática del Congo", "Sudáfrica", "Nigeria"],
-        "respuesta_correcta": "Argelia"
-    },
-    {
-        "pregunta": "¿En qué país se encuentra la ciudad de Petra?",
-        "respuestas": ["Jordania", "Egipto", "Israel", "Líbano"],
-        "respuesta_correcta": "Jordania"
-    },
-    {
-        "pregunta": "¿Cuál es el símbolo químico del oxígeno?",
-        "respuestas": ["O", "Ox", "Oi", "Oxí"],
-        "respuesta_correcta": "O"
-    },
-    {
-        "pregunta": "¿Quién fue el primer presidente de la República de Chile?",
-        "respuestas": ["Manuel Blanco Encalada", "Bernardo O'Higgins", "José Miguel Carrera", "Diego Portales"],
-        "respuesta_correcta": "Manuel Blanco Encalada"
-    },
-    {
-        "pregunta": "¿Cuál es el país con más premios Nobel?",
-        "respuestas": ["Estados Unidos", "Reino Unido", "Alemania", "Francia"],
-        "respuesta_correcta": "Estados Unidos"
-    },
-    {
-        "pregunta": "¿Quién fue el primer hombre en la historia en escalar el monte Everest sin oxígeno?",
-        "respuestas": ["Reinhold Messner", "Edmund Hillary", "Tenzing Norgay", "Junko Tabei"],
-        "respuesta_correcta": "Reinhold Messner"
-    },
-    {
-        "pregunta": "¿Cuál es la capital de Francia?",
-        "respuestas": ["Madrid", "Berlín", "Londres", "París"],
-        "respuesta_correcta": "París"
-    },
-    {
-        "pregunta": "¿Quién escribió 'Don Quijote de la Mancha'?",
-        "respuestas": ["Miguel de Cervantes", "Gabriel García Márquez", "William Shakespeare", "Leo Tolstoy"],
-        "respuesta_correcta": "Miguel de Cervantes"
-    },
-    {
-        "pregunta": "¿Cuál es el río más largo del mundo?",
-        "respuestas": ["Amazonas", "Nilo", "Yangtsé", "Mississippi"],
-        "respuesta_correcta": "Amazonas"
-    },
-    {
-        "pregunta": "¿En qué año comenzó la Segunda Guerra Mundial?",
-        "respuestas": ["1914", "1939", "1945", "1941"],
-        "respuesta_correcta": "1939"
-    },
-    {
-        "pregunta": "¿Cuál es el elemento más abundante en la corteza terrestre?",
-        "respuestas": ["Oxígeno", "Hierro", "Silicio", "Aluminio"],
-        "respuesta_correcta": "Oxígeno"
-    }
+   // Deportes
+   {
+    "pregunta": "¿Cuál es el deporte más popular del mundo?",
+    "respuestas": ["Fútbol", "Baloncesto", "Tenis", "Críquet"],
+    "respuesta_correcta": "Fútbol"
+},
+{
+    "pregunta": "¿En qué país se originó el deporte del rugby?",
+    "respuestas": ["Inglaterra", "Australia", "Nueva Zelanda", "Estados Unidos"],
+    "respuesta_correcta": "Inglaterra"
+},
+{
+    "pregunta": "¿Quién es el máximo goleador en la historia de la Copa Mundial de Fútbol?",
+    "respuestas": ["Pelé", "Diego Maradona", "Miroslav Klose", "Lionel Messi"],
+    "respuesta_correcta": "Miroslav Klose"
+},
+{
+    "pregunta": "¿Cuál es el deporte de equipo que se juega con un disco volador?",
+    "respuestas": ["Ultimate frisbee", "Hockey sobre hielo", "Críquet", "Lacrosse"],
+    "respuesta_correcta": "Ultimate frisbee"
+},
+{
+    "pregunta": "¿Cuál es el deporte que involucra lanzamiento de una bola pesada hacia un blanco?",
+    "respuestas": ["Bolos", "Lanzamiento de martillo", "Bolos de bolera", "Boccia"],
+    "respuesta_correcta": "Bolos de bolera"
+},
+
+// Historia
+{
+    "pregunta": "¿Quién fue el primer presidente de Estados Unidos?",
+    "respuestas": ["George Washington", "Thomas Jefferson", "Abraham Lincoln", "John Adams"],
+    "respuesta_correcta": "George Washington"
+},
+{
+    "pregunta": "¿En qué año comenzó la Primera Guerra Mundial?",
+    "respuestas": ["1914", "1918", "1939", "1945"],
+    "respuesta_correcta": "1914"
+},
+{
+    "pregunta": "¿Cuál fue la primera civilización conocida?",
+    "respuestas": ["Sumeria", "Egipto", "Mesopotamia", "Indus"],
+    "respuesta_correcta": "Sumeria"
+},
+{
+    "pregunta": "¿Quién escribió la 'Ilíada' y la 'Odisea'?",
+    "respuestas": ["Homero", "Sófocles", "Eurípides", "Aristóteles"],
+    "respuesta_correcta": "Homero"
+},
+{
+    "pregunta": "¿Cuál fue el período conocido como la 'Edad de Oro' de la civilización griega?",
+    "respuestas": ["Período Arcaico", "Período Clásico", "Período Helenístico", "Período Minoico"],
+    "respuesta_correcta": "Período Clásico"
+},
+
+// Actualidad
+{
+    "pregunta": "¿Cuál es la capital de Francia?",
+    "respuestas": ["París", "Londres", "Berlín", "Madrid"],
+    "respuesta_correcta": "París"
+},
+{
+    "pregunta": "¿Quién es el actual presidente de Estados Unidos?",
+    "respuestas": ["Joe Biden", "Donald Trump", "Kamala Harris", "Ninguna de las anteriores"],
+    "respuesta_correcta": "Joe Biden"
+},
+{
+    "pregunta": "¿Cuál es la moneda oficial de Japón?",
+    "respuestas": ["Yen", "Dólar", "Euro", "Peso"],
+    "respuesta_correcta": "Yen"
+},
+{
+    "pregunta": "¿Qué año marcó el inicio de la Segunda Guerra Mundial?",
+    "respuestas": ["1939", "1941", "1945", "1937"],
+    "respuesta_correcta": "1939"
+},
+{
+    "pregunta": "¿En qué continente se encuentra el desierto del Sahara?",
+    "respuestas": ["África", "Asia", "Europa", "América"],
+    "respuesta_correcta": "África"
+},
+
+// Música
+{
+    "pregunta": "¿Quién es conocido como el Rey del Pop?",
+    "respuestas": ["Michael Jackson", "Elvis Presley", "Madonna", "Prince"],
+    "respuesta_correcta": "Michael Jackson"
+},
+{
+    "pregunta": "¿Qué banda lanzó el álbum 'The Dark Side of the Moon'?",
+    "respuestas": ["Pink Floyd", "The Beatles", "Led Zeppelin", "Queen"],
+    "respuesta_correcta": "Pink Floyd"
+},
+{
+    "pregunta": "¿Quién es el vocalista de la banda Queen?",
+    "respuestas": ["Freddie Mercury", "Elton John", "David Bowie", "Mick Jagger"],
+    "respuesta_correcta": "Freddie Mercury"
+},
+{
+    "pregunta": "¿Qué famoso compositor era sordo?",
+    "respuestas": ["Ludwig van Beethoven", "Wolfgang Amadeus Mozart", "Johann Sebastian Bach", "Franz Schubert"],
+    "respuesta_correcta": "Ludwig van Beethoven"
+},
+{
+    "pregunta": "¿Cuál de los siguientes géneros musicales se originó en Jamaica?",
+    "respuestas": ["Reggae", "Salsa", "Bachata", "Tango"],
+    "respuesta_correcta": "Reggae"
+},
+
+// Ciencia
+{
+    "pregunta": "¿Cuál es la velocidad de la luz en el vacío?",
+    "respuestas": ["299,792,458 metros por segundo", "300,000,000 metros por segundo", "250,000,000 metros por segundo", "350,000,000 metros por segundo"],
+    "respuesta_correcta": "299,792,458 metros por segundo"
+},
+{
+    "pregunta": "¿Cuál es el elemento más abundante en la corteza terrestre?",
+    "respuestas": ["Oxígeno", "Silicio", "Aluminio", "Hierro"],
+    "respuesta_correcta": "Oxígeno"
+},
+{
+    "pregunta": "¿Qué parte del átomo tiene carga positiva?",
+    "respuestas": ["Núcleo", "Electrones", "Protones", "Neutrones"],
+    "respuesta_correcta": "Núcleo"
+},
+{
+    "pregunta": "¿Cuál es el hueso más largo del cuerpo humano?",
+    "respuestas": ["Fémur", "Tibia", "Húmero", "Radio"],
+    "respuesta_correcta": "Fémur"
+},
+{
+    "pregunta": "¿Quién formuló la teoría de la relatividad?",
+    "respuestas": ["Albert Einstein", "Isaac Newton", "Stephen Hawking", "Nikola Tesla"],
+    "respuesta_correcta": "Albert Einstein"
+},
+
+// Otras preguntas
+{
+    "pregunta": "¿Cuál es el río más largo del mundo?",
+    "respuestas": ["Amazonas", "Nilo", "Mississippi", "Yangtsé"],
+    "respuesta_correcta": "Amazonas"
+},
+{
+    "pregunta": "¿En qué año se fundó Google?",
+    "respuestas": ["1998", "2000", "1995", "2002"],
+    "respuesta_correcta": "1998"
+},
+{
+    "pregunta": "¿Qué animal es conocido como 'el rey de la selva'?",
+    "respuestas": ["León", "Tigre", "Elefante", "Oso"],
+    "respuesta_correcta": "León"
+},
+{
+    "pregunta": "¿Cuál es el monte más alto del mundo?",
+    "respuestas": ["Monte Everest", "Monte Kilimanjaro", "K2", "Monte Aconcagua"],
+    "respuesta_correcta": "Monte Everest"
+},
+{
+    "pregunta": "¿Cuál es el número atómico del carbono?",
+    "respuestas": ["6", "8", "12", "14"],
+    "respuesta_correcta": "6"
+}
 ];
 
 

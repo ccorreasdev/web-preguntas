@@ -346,6 +346,15 @@ const onWindowResize = () => {
     camera.updateProjectionMatrix();
     renderer.setSize(width, height);
 
+    const windowWidth = window.innerWidth;
+
+    if(windowWidth >= 1680) {
+        model1.position.set(9,2,0);
+    }else if(windowWidth >= 768){
+        model1.position.set(0,3.2,0);
+    }
+   
+
 };
 
 const loadModelGLTF = (modelURL) => {
@@ -382,14 +391,15 @@ const init = async () => {
 
     scene = new THREE.Scene();
 
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0);
-    directionalLight.position.set(0, 20, 100);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(0, 2000, 1000);
     directionalLight.lookAt(0, 0, 0);
-    directionalLight.intensity = 1;
+    directionalLight.intensity = 12;
     scene.add(directionalLight);
 
-    const ambientlight = new THREE.AmbientLight(0xffffff, 7);
+    const ambientlight = new THREE.AmbientLight(0xffffff, 1);
     ambientlight.position.set(0, 0, 0);
+    ambientlight.intensity = 1;
     scene.add(ambientlight);
 
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -401,7 +411,7 @@ const init = async () => {
     //LOAD 3D MODELS
 
 
-    await loadModelGLTF("asics_shoe").then((resolve) => {
+    await loadModelGLTF("question_box").then((resolve) => {
         console.log(resolve);
         model1 = resolve;
         return loadModelGLTF("asics_shoe");
@@ -409,9 +419,9 @@ const init = async () => {
         model2 = resolve;
     });
 
-    model1.scale.set(20,20,20);
-    model1.position.set(0,10,0);
-    model1.rotation.set(0.4,0,0);
+    model1.scale.set(0.008,0.008,0.008);
+    model1.position.set(9,2,0);
+    model1.rotation.set(0,0,0);
     scene.add(model1);
 
 };
@@ -423,6 +433,12 @@ const render = () => {
 
 const animate = () => {
     requestAnimationFrame(animate);
+
+    if(model1){
+        model1.rotation.y += 0.01;
+    }
+
+
     render();
 };
 

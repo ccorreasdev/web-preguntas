@@ -2,170 +2,307 @@ console.log("THREE JS RUNNING")
 import * as THREE from "./build/three.module.js";
 import { GLTFLoader } from "./jsm/loaders/GLTFLoader.js"
 
-const preguntas = [
-
-   // Deportes
-   {
-    "pregunta": "¿Cuál es el deporte más popular del mundo?",
-    "respuestas": ["Fútbol", "Baloncesto", "Tenis", "Críquet"],
-    "respuesta_correcta": "Fútbol"
-},
-{
-    "pregunta": "¿En qué país se originó el deporte del rugby?",
-    "respuestas": ["Inglaterra", "Australia", "Nueva Zelanda", "Estados Unidos"],
-    "respuesta_correcta": "Inglaterra"
-},
-{
-    "pregunta": "¿Quién es el máximo goleador en la historia de la Copa Mundial de Fútbol?",
-    "respuestas": ["Pelé", "Diego Maradona", "Miroslav Klose", "Lionel Messi"],
-    "respuesta_correcta": "Miroslav Klose"
-},
-{
-    "pregunta": "¿Cuál es el deporte de equipo que se juega con un disco volador?",
-    "respuestas": ["Ultimate frisbee", "Hockey sobre hielo", "Críquet", "Lacrosse"],
-    "respuesta_correcta": "Ultimate frisbee"
-},
-{
-    "pregunta": "¿Cuál es el deporte que involucra lanzamiento de una bola pesada hacia un blanco?",
-    "respuestas": ["Bolos", "Lanzamiento de martillo", "Bolos de bolera", "Boccia"],
-    "respuesta_correcta": "Bolos de bolera"
-},
-
-// Historia
-{
-    "pregunta": "¿Quién fue el primer presidente de Estados Unidos?",
-    "respuestas": ["George Washington", "Thomas Jefferson", "Abraham Lincoln", "John Adams"],
-    "respuesta_correcta": "George Washington"
-},
-{
-    "pregunta": "¿En qué año comenzó la Primera Guerra Mundial?",
-    "respuestas": ["1914", "1918", "1939", "1945"],
-    "respuesta_correcta": "1914"
-},
-{
-    "pregunta": "¿Cuál fue la primera civilización conocida?",
-    "respuestas": ["Sumeria", "Egipto", "Mesopotamia", "Indus"],
-    "respuesta_correcta": "Sumeria"
-},
-{
-    "pregunta": "¿Quién escribió la 'Ilíada' y la 'Odisea'?",
-    "respuestas": ["Homero", "Sófocles", "Eurípides", "Aristóteles"],
-    "respuesta_correcta": "Homero"
-},
-{
-    "pregunta": "¿Cuál fue el período conocido como la 'Edad de Oro' de la civilización griega?",
-    "respuestas": ["Período Arcaico", "Período Clásico", "Período Helenístico", "Período Minoico"],
-    "respuesta_correcta": "Período Clásico"
-},
-
-// Actualidad
-{
-    "pregunta": "¿Cuál es la capital de Francia?",
-    "respuestas": ["París", "Londres", "Berlín", "Madrid"],
-    "respuesta_correcta": "París"
-},
-{
-    "pregunta": "¿Quién es el actual presidente de Estados Unidos?",
-    "respuestas": ["Joe Biden", "Donald Trump", "Kamala Harris", "Ninguna de las anteriores"],
-    "respuesta_correcta": "Joe Biden"
-},
-{
-    "pregunta": "¿Cuál es la moneda oficial de Japón?",
-    "respuestas": ["Yen", "Dólar", "Euro", "Peso"],
-    "respuesta_correcta": "Yen"
-},
-{
-    "pregunta": "¿Qué año marcó el inicio de la Segunda Guerra Mundial?",
-    "respuestas": ["1939", "1941", "1945", "1937"],
-    "respuesta_correcta": "1939"
-},
-{
-    "pregunta": "¿En qué continente se encuentra el desierto del Sahara?",
-    "respuestas": ["África", "Asia", "Europa", "América"],
-    "respuesta_correcta": "África"
-},
-
-// Música
-{
-    "pregunta": "¿Quién es conocido como el Rey del Pop?",
-    "respuestas": ["Michael Jackson", "Elvis Presley", "Madonna", "Prince"],
-    "respuesta_correcta": "Michael Jackson"
-},
-{
-    "pregunta": "¿Qué banda lanzó el álbum 'The Dark Side of the Moon'?",
-    "respuestas": ["Pink Floyd", "The Beatles", "Led Zeppelin", "Queen"],
-    "respuesta_correcta": "Pink Floyd"
-},
-{
-    "pregunta": "¿Quién es el vocalista de la banda Queen?",
-    "respuestas": ["Freddie Mercury", "Elton John", "David Bowie", "Mick Jagger"],
-    "respuesta_correcta": "Freddie Mercury"
-},
-{
-    "pregunta": "¿Qué famoso compositor era sordo?",
-    "respuestas": ["Ludwig van Beethoven", "Wolfgang Amadeus Mozart", "Johann Sebastian Bach", "Franz Schubert"],
-    "respuesta_correcta": "Ludwig van Beethoven"
-},
-{
-    "pregunta": "¿Cuál de los siguientes géneros musicales se originó en Jamaica?",
-    "respuestas": ["Reggae", "Salsa", "Bachata", "Tango"],
-    "respuesta_correcta": "Reggae"
-},
-
-// Ciencia
-{
-    "pregunta": "¿Cuál es la velocidad de la luz en el vacío?",
-    "respuestas": ["299,792,458 metros por segundo", "300,000,000 metros por segundo", "250,000,000 metros por segundo", "350,000,000 metros por segundo"],
-    "respuesta_correcta": "299,792,458 metros por segundo"
-},
-{
-    "pregunta": "¿Cuál es el elemento más abundante en la corteza terrestre?",
-    "respuestas": ["Oxígeno", "Silicio", "Aluminio", "Hierro"],
-    "respuesta_correcta": "Oxígeno"
-},
-{
-    "pregunta": "¿Qué parte del átomo tiene carga positiva?",
-    "respuestas": ["Núcleo", "Electrones", "Protones", "Neutrones"],
-    "respuesta_correcta": "Núcleo"
-},
-{
-    "pregunta": "¿Cuál es el hueso más largo del cuerpo humano?",
-    "respuestas": ["Fémur", "Tibia", "Húmero", "Radio"],
-    "respuesta_correcta": "Fémur"
-},
-{
-    "pregunta": "¿Quién formuló la teoría de la relatividad?",
-    "respuestas": ["Albert Einstein", "Isaac Newton", "Stephen Hawking", "Nikola Tesla"],
-    "respuesta_correcta": "Albert Einstein"
-},
-
-// Otras preguntas
-{
-    "pregunta": "¿Cuál es el río más largo del mundo?",
-    "respuestas": ["Amazonas", "Nilo", "Mississippi", "Yangtsé"],
-    "respuesta_correcta": "Amazonas"
-},
-{
-    "pregunta": "¿En qué año se fundó Google?",
-    "respuestas": ["1998", "2000", "1995", "2002"],
-    "respuesta_correcta": "1998"
-},
-{
-    "pregunta": "¿Qué animal es conocido como 'el rey de la selva'?",
-    "respuestas": ["León", "Tigre", "Elefante", "Oso"],
-    "respuesta_correcta": "León"
-},
-{
-    "pregunta": "¿Cuál es el monte más alto del mundo?",
-    "respuestas": ["Monte Everest", "Monte Kilimanjaro", "K2", "Monte Aconcagua"],
-    "respuesta_correcta": "Monte Everest"
-},
-{
-    "pregunta": "¿Cuál es el número atómico del carbono?",
-    "respuestas": ["6", "8", "12", "14"],
-    "respuesta_correcta": "6"
-}
+const preguntasDeportes = [
+    {
+        "pregunta": "¿Cuál es el deporte más popular del mundo?",
+        "respuestas": ["Fútbol", "Baloncesto", "Tenis", "Críquet"],
+        "respuesta_correcta": "Fútbol"
+    },
+    {
+        "pregunta": "¿En qué país se originó el deporte del rugby?",
+        "respuestas": ["Inglaterra", "Australia", "Nueva Zelanda", "Estados Unidos"],
+        "respuesta_correcta": "Inglaterra"
+    },
+    {
+        "pregunta": "¿Quién es el máximo goleador en la historia de la Copa Mundial de Fútbol?",
+        "respuestas": ["Pelé", "Diego Maradona", "Miroslav Klose", "Lionel Messi"],
+        "respuesta_correcta": "Miroslav Klose"
+    },
+    {
+        "pregunta": "¿Cuál es el deporte de equipo que se juega con un disco volador?",
+        "respuestas": ["Ultimate frisbee", "Hockey sobre hielo", "Críquet", "Lacrosse"],
+        "respuesta_correcta": "Ultimate frisbee"
+    },
+    {
+        "pregunta": "¿Cuál es el deporte que involucra lanzamiento de una bola pesada hacia un blanco?",
+        "respuestas": ["Bolos", "Lanzamiento de martillo", "Bolos de bolera", "Boccia"],
+        "respuesta_correcta": "Bolos de bolera"
+    },
+    // Otras preguntas de deportes...
+    {
+        "pregunta": "¿En qué año se celebró la primera edición de los Juegos Olímpicos modernos?",
+        "respuestas": ["1896", "1900", "1912", "1924"],
+        "respuesta_correcta": "1896"
+    },
+    {
+        "pregunta": "¿Quién ganó el Balón de Oro en 2019?",
+        "respuestas": ["Lionel Messi", "Cristiano Ronaldo", "Virgil van Dijk", "Luka Modrić"],
+        "respuesta_correcta": "Lionel Messi"
+    },
+    {
+        "pregunta": "¿Cuántos jugadores hay en un equipo de voleibol en la cancha durante un partido?",
+        "respuestas": ["6", "5", "7", "4"],
+        "respuesta_correcta": "6"
+    },
+    {
+        "pregunta": "¿Qué país ganó la Copa Mundial de Fútbol FIFA en 2018?",
+        "respuestas": ["Francia", "Croacia", "Brasil", "Alemania"],
+        "respuesta_correcta": "Francia"
+    },
+    {
+        "pregunta": "¿Cuál es el deporte nacional de Japón?",
+        "respuestas": ["Sumo", "Kendo", "Judo", "Béisbol"],
+        "respuesta_correcta": "Sumo"
+    }
 ];
+
+const preguntasHistoria = [
+    {
+        "pregunta": "¿Quién fue el primer presidente de Estados Unidos?",
+        "respuestas": ["George Washington", "Thomas Jefferson", "Abraham Lincoln", "John Adams"],
+        "respuesta_correcta": "George Washington"
+    },
+    {
+        "pregunta": "¿En qué año comenzó la Primera Guerra Mundial?",
+        "respuestas": ["1914", "1918", "1939", "1945"],
+        "respuesta_correcta": "1914"
+    },
+    {
+        "pregunta": "¿Cuál fue la primera civilización conocida?",
+        "respuestas": ["Sumeria", "Egipto", "Mesopotamia", "Indus"],
+        "respuesta_correcta": "Sumeria"
+    },
+    {
+        "pregunta": "¿Quién escribió la 'Ilíada' y la 'Odisea'?",
+        "respuestas": ["Homero", "Sófocles", "Eurípides", "Aristóteles"],
+        "respuesta_correcta": "Homero"
+    },
+    {
+        "pregunta": "¿Cuál fue el período conocido como la 'Edad de Oro' de la civilización griega?",
+        "respuestas": ["Período Arcaico", "Período Clásico", "Período Helenístico", "Período Minoico"],
+        "respuesta_correcta": "Período Clásico"
+    },
+    // Otras preguntas de historia...
+    {
+        "pregunta": "¿En qué año se firmó la Declaración de Independencia de Estados Unidos?",
+        "respuestas": ["1776", "1789", "1804", "1812"],
+        "respuesta_correcta": "1776"
+    },
+    {
+        "pregunta": "¿Quién fue el primer emperador de Roma?",
+        "respuestas": ["César Augusto", "Julio César", "Tiberio", "Nerón"],
+        "respuesta_correcta": "César Augusto"
+    },
+    {
+        "pregunta": "¿Cuál fue el nombre del barco en el que Cristóbal Colón llegó a América en 1492?",
+        "respuestas": ["Santa María", "La Niña", "La Pinta", "Victoria"],
+        "respuesta_correcta": "Santa María"
+    },
+    {
+        "pregunta": "¿Cuál fue el primer país en otorgar el derecho al voto a las mujeres?",
+        "respuestas": ["Nueva Zelanda", "Estados Unidos", "Reino Unido", "Suecia"],
+        "respuesta_correcta": "Nueva Zelanda"
+    },
+    {
+        "pregunta": "¿En qué año finalizó la Guerra de Secesión en Estados Unidos?",
+        "respuestas": ["1865", "1870", "1850", "1880"],
+        "respuesta_correcta": "1865"
+    }
+];
+
+const preguntasActualidad = [
+    {
+        "pregunta": "¿Cuál es la capital de Francia?",
+        "respuestas": ["París", "Londres", "Berlín", "Madrid"],
+        "respuesta_correcta": "París"
+    },
+    {
+        "pregunta": "¿Quién es el actual presidente de Estados Unidos?",
+        "respuestas": ["Joe Biden", "Donald Trump", "Kamala Harris", "Ninguna de las anteriores"],
+        "respuesta_correcta": "Joe Biden"
+    },
+    {
+        "pregunta": "¿Cuál es la moneda oficial de Japón?",
+        "respuestas": ["Yen", "Dólar", "Euro", "Peso"],
+        "respuesta_correcta": "Yen"
+    },
+    {
+        "pregunta": "¿Qué año marcó el inicio de la Segunda Guerra Mundial?",
+        "respuestas": ["1939", "1941", "1945", "1937"],
+        "respuesta_correcta": "1939"
+    },
+    {
+        "pregunta": "¿En qué continente se encuentra el desierto del Sahara?",
+        "respuestas": ["África", "Asia", "Europa", "América"],
+        "respuesta_correcta": "África"
+    },
+    // Otras preguntas de actualidad...
+    {
+        "pregunta": "¿Cuál es el país más grande del mundo por área?",
+        "respuestas": ["Rusia", "Canadá", "China", "Estados Unidos"],
+        "respuesta_correcta": "Rusia"
+    },
+    {
+        "pregunta": "¿Quién es el actual Primer Ministro del Reino Unido?",
+        "respuestas": ["Boris Johnson", "Theresa May", "David Cameron", "Tony Blair"],
+        "respuesta_correcta": "Boris Johnson"
+    },
+    {
+        "pregunta": "¿Cuál es la moneda oficial de Brasil?",
+        "respuestas": ["Real", "Peso", "Dólar", "Rupia"],
+        "respuesta_correcta": "Real"
+    },
+    {
+        "pregunta": "¿Qué país es conocido como 'la tierra del sol naciente'?",
+        "respuestas": ["Japón", "China", "India", "Corea del Sur"],
+        "respuesta_correcta": "Japón"
+    },
+    {
+        "pregunta": "¿Cuál es la moneda oficial de Suiza?",
+        "respuestas": ["Franco suizo", "Euro", "Dólar suizo", "Libra esterlina"],
+        "respuesta_correcta": "Franco suizo"
+    }
+];
+
+const preguntasMusica = [
+    {
+        "pregunta": "¿Quién es conocido como el Rey del Pop?",
+        "respuestas": ["Michael Jackson", "Elvis Presley", "Madonna", "Prince"],
+        "respuesta_correcta": "Michael Jackson"
+    },
+    {
+        "pregunta": "¿Qué banda lanzó el álbum 'The Dark Side of the Moon'?",
+        "respuestas": ["Pink Floyd", "The Beatles", "Led Zeppelin", "Queen"],
+        "respuesta_correcta": "Pink Floyd"
+    },
+    {
+        "pregunta": "¿Quién es el vocalista de la banda Queen?",
+        "respuestas": ["Freddie Mercury", "Elton John", "David Bowie", "Mick Jagger"],
+        "respuesta_correcta": "Freddie Mercury"
+    },
+    {
+        "pregunta": "¿Qué famoso compositor era sordo?",
+        "respuestas": ["Ludwig van Beethoven", "Wolfgang Amadeus Mozart", "Johann Sebastian Bach", "Franz Schubert"],
+        "respuesta_correcta": "Ludwig van Beethoven"
+    },
+    {
+        "pregunta": "¿Cuál de los siguientes géneros musicales se originó en Jamaica?",
+        "respuestas": ["Reggae", "Salsa", "Bachata", "Tango"],
+        "respuesta_correcta": "Reggae"
+    },
+    // Otras preguntas de música...
+    {
+        "pregunta": "¿Quién es el guitarrista de la banda Led Zeppelin?",
+        "respuestas": ["Jimmy Page", "Eric Clapton", "Slash", "Keith Richards"],
+        "respuesta_correcta": "Jimmy Page"
+    },
+    {
+        "pregunta": "¿Qué cantante es conocido como 'El Rey del Rock'?",
+        "respuestas": ["Elvis Presley", "Chuck Berry", "Little Richard", "Buddy Holly"],
+        "respuesta_correcta": "Elvis Presley"
+    },
+    {
+        "pregunta": "¿Cuál es el nombre completo de Lady Gaga?",
+        "respuestas": ["Stefani Joanne Angelina Germanotta", "Beyoncé Giselle Knowles-Carter", "Adele Laurie Blue Adkins", "Taylor Alison Swift"],
+        "respuesta_correcta": "Stefani Joanne Angelina Germanotta"
+    },
+    {
+        "pregunta": "¿Qué álbum de estudio de The Beatles se considera uno de los más influyentes de la historia?",
+        "respuestas": ["Sgt. Pepper's Lonely Hearts Club Band", "Abbey Road", "Revolver", "The White Album"],
+        "respuesta_correcta": "Sgt. Pepper's Lonely Hearts Club Band"
+    },
+    {
+        "pregunta": "¿Qué instrumento tocaba Jimi Hendrix?",
+        "respuestas": ["Guitarra eléctrica", "Batería", "Bajo", "Teclado"],
+        "respuesta_correcta": "Guitarra eléctrica"
+    }
+];
+
+const preguntasCiencia = [
+    {
+        "pregunta": "¿Cuál es la velocidad de la luz en el vacío?",
+        "respuestas": ["299,792,458 metros por segundo", "300,000,000 metros por segundo", "250,000,000 metros por segundo", "350,000,000 metros por segundo"],
+        "respuesta_correcta": "299,792,458 metros por segundo"
+    },
+    {
+        "pregunta": "¿Cuál es el elemento más abundante en la corteza terrestre?",
+        "respuestas": ["Oxígeno", "Silicio", "Aluminio", "Hierro"],
+        "respuesta_correcta": "Oxígeno"
+    },
+    {
+        "pregunta": "¿Qué parte del átomo tiene carga positiva?",
+        "respuestas": ["Núcleo", "Electrones", "Protones", "Neutrones"],
+        "respuesta_correcta": "Núcleo"
+    },
+    {
+        "pregunta": "¿Cuál es el hueso más largo del cuerpo humano?",
+        "respuestas": ["Fémur", "Tibia", "Húmero", "Radio"],
+        "respuesta_correcta": "Fémur"
+    },
+    {
+        "pregunta": "¿Quién formuló la teoría de la relatividad?",
+        "respuestas": ["Albert Einstein", "Isaac Newton", "Stephen Hawking", "Nikola Tesla"],
+        "respuesta_correcta": "Albert Einstein"
+    },
+    // Otras preguntas de ciencia...
+    {
+        "pregunta": "¿Cuál es la fórmula química del agua?",
+        "respuestas": ["H2O", "CO2", "NaCl", "O2"],
+        "respuesta_correcta": "H2O"
+    },
+    {
+        "pregunta": "¿Quién propuso la teoría heliocéntrica?",
+        "respuestas": ["Nicolás Copérnico", "Galileo Galilei", "Johannes Kepler", "Isaac Newton"],
+        "respuesta_correcta": "Nicolás Copérnico"
+    },
+    {
+        "pregunta": "¿Cuál es la unidad básica de la vida?",
+        "respuestas": ["Célula", "Átomo", "Molécula", "Organelo"],
+        "respuesta_correcta": "Célula"
+    },
+    {
+        "pregunta": "¿Qué tipo de estrella es el Sol?",
+        "respuestas": ["Enana amarilla", "Supergigante", "Enana roja", "Estrella de neutrones"],
+        "respuesta_correcta": "Enana amarilla"
+    },
+    {
+        "pregunta": "¿Cuál es el planeta más grande del sistema solar?",
+        "respuestas": ["Júpiter", "Saturno", "Neptuno", "Urano"],
+        "respuesta_correcta": "Júpiter"
+    }
+];
+
+// Preguntas adicionales para completar hasta 50 preguntas
+const preguntasAdicionales = [
+    {
+        "pregunta": "¿Cuál es el río más largo del mundo?",
+        "respuestas": ["Amazonas", "Nilo", "Mississippi", "Yangtsé"],
+        "respuesta_correcta": "Amazonas"
+    },
+    {
+        "pregunta": "¿En qué año se fundó Google?",
+        "respuestas": ["1998", "2000", "1995", "2002"],
+        "respuesta_correcta": "1998"
+    },
+    {
+        "pregunta": "¿Qué animal es conocido como 'el rey de la selva'?",
+        "respuestas": ["León", "Tigre", "Elefante", "Oso"],
+        "respuesta_correcta": "León"
+    },
+    {
+        "pregunta": "¿Cuál es el monte más alto del mundo?",
+        "respuestas": ["Monte Everest", "Monte Kilimanjaro", "K2", "Monte Aconcagua"],
+        "respuesta_correcta": "Monte Everest"
+    },
+    {
+        "pregunta": "¿Cuál es el número atómico del carbono?",
+        "respuestas": ["6", "8", "12", "14"],
+        "respuesta_correcta": "6"
+    },
+    // Otras preguntas adicionales para completar hasta 50...
+];
+
+const preguntas = preguntasDeportes.concat(preguntasHistoria, preguntasActualidad, preguntasMusica, preguntasCiencia, preguntasAdicionales);
 
 
 const totalQuestions = preguntas.length;
